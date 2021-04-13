@@ -62,7 +62,7 @@ fig1_region = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_
 #fig2 = px.histogram(df_vagas, x="nivel", color="nivel", hover_name ='nivel', facet_col= 'vaga')
 
 fig2 = px.treemap(df_region, path=[px.Constant('Brasil')], values='jair bolsonaro',
-                  color=df_region.index, hover_data=['iso_alpha'])
+                  color=df_region.index, hover_data=['jair bolsonaro'])
 
 ##########################
 
