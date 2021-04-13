@@ -24,10 +24,14 @@ jobs:
       run: pip install datapane
 
     - name: Install plotly-express                             
-      run: pip install plotly-express      
+      run: pip install plotly-express 
+
+    - name: Install pytrends                             
+      run: pip install pytrends
+
+    - name: Install folium                            
+      run: pip install folium     
  
     - name: running script analise_trends.py                                
       run: python analise_trends.py ${{ secrets.datapane_token }}
-      
-    - name: Listar directory                            
-      run: ls -la  
+       
