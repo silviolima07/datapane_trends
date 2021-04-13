@@ -9,7 +9,7 @@ import folium
 import plotly.express as px
 import sys
 
-!pip install pytrends
+#!pip install pytrends
 from pytrends.request import TrendReq
 
 import plotly.io as pio
