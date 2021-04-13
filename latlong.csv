@@ -1,0 +1,68 @@
+sigla;estado;ddd;regiao;lat;long
+DF;Distrito Federal;61;Centro-Oeste;-15.83;-47.86
+GO;Goiás;62;Centro-Oeste;-15.98;-49.86
+GO;Goiás;64;Centro-Oeste;-15.98;-49.86
+MT;Mato Grosso;65;Centro-Oeste;-12.64;-55.42
+MT;Mato Grosso;66;Centro-Oeste;-12.64;-55.42
+MS;Mato Grosso do Sul;67;Centro-Oeste;-20.51;-54.54
+AL;Alagoas;82;Nordeste;-9.62;-36.82
+BA;Bahia;71;Nordeste;-13.29;-41.71
+BA;Bahia;73;Nordeste;-13.29;-41.71
+BA;Bahia;74;Nordeste;-13.29;-41.71
+BA;Bahia;75;Nordeste;-13.29;-41.71
+BA;Bahia;77;Nordeste;-13.29;-41.71
+CE;Ceará;85;Nordeste;-5.20;-39.53
+CE;Ceará;88;Nordeste;-5.20;-39.53
+MA;Maranhão;99;Nordeste;-5.42;-45.44
+MA;Maranhão;98;Nordeste;-5.42;-45.44
+PA;Paraíba;83;Nordeste;-3.79;-52.48
+PB;Pernambuco;81;Nordeste;-7.28;-36.72
+PB;Pernambuco;87;Nordeste;-7.28;-36.72
+PI;Piauí;86;Nordeste;-6.60;-42.28
+PI;Piauí;89;Nordeste;-6.60;-42.28
+RN;Rio Grande do Norte;84;Nordeste;-5.81;-36.59
+SE;Sergipe;79;Nordeste;-10.57;-37.45
+AC;Acre;68;Norte;-8.77;-70.55
+AP;Amapá;96;Norte;1.41;-51.77
+AM;Amazonas;92;Norte;-3.47;-65.10
+AM;Amazonas;97;Norte;-3.47;-65.10
+PA;Pará;91;Norte;-3.79;-52.48
+PA;Pará;93;Norte;-3.79;-52.48
+PA;Pará;94;Norte;-3.79;-52.48
+RN;Rondônia;69;Norte;-5.81;-36.59
+RO;Roraima;95;Norte;-10.83;-63.34
+TO;Tocantins;63;Norte;-9.46;-48.26
+ES;Espírito Santo;27;Sudeste;-19.19;-40.34
+ES;Espírito Santo;28;Sudeste;-19.19;-40.34
+MG;Minas Gerais;31;Sudeste;-18.10;-44.38
+MG;Minas Gerais;32;Sudeste;-18.10;-44.38
+MG;Minas Gerais;33;Sudeste;-18.10;-44.38
+MG;Minas Gerais;34;Sudeste;-18.10;-44.38
+MG;Minas Gerais;35;Sudeste;-18.10;-44.38
+MG;Minas Gerais;37;Sudeste;-18.10;-44.38
+MG;Minas Gerais;38;Sudeste;-18.10;-44.38
+RJ;Rio de Janeiro;21;Sudeste;-22.25;-42.66
+RJ;Rio de Janeiro;22;Sudeste;-22.25;-42.66
+RJ;Rio de Janeiro;24;Sudeste;-22.25;-42.66
+SP;São Paulo;11;Sudeste;-22.19;-48.79
+SP;São Paulo;12;Sudeste;-22.19;-48.79
+SP;São Paulo;13;Sudeste;-22.19;-48.79
+SP;São Paulo;14;Sudeste;-22.19;-48.79
+SP;São Paulo;15;Sudeste;-22.19;-48.79
+SP;São Paulo;16;Sudeste;-22.19;-48.79
+SP;São Paulo;17;Sudeste;-22.19;-48.79
+SP;São Paulo;18;Sudeste;-22.19;-48.79
+SP;São Paulo;19;Sudeste;-22.19;-48.79
+PR;Paraná;41;Sul;-24.89;-51.55
+PR;Paraná;42;Sul;-24.89;-51.55
+PR;Paraná;43;Sul;-24.89;-51.55
+PR;Paraná;44;Sul;-24.89;-51.55
+PR;Paraná;45;Sul;-24.89;-51.55
+PR;Paraná;46;Sul;-24.89;-51.55
+RS;Rio Grande do Sul;51;Sul;-30.17;-53.50
+RS;Rio Grande do Sul;53;Sul;-30.17;-53.50
+RS;Rio Grande do Sul;54;Sul;-30.17;-53.50
+RS;Rio Grande do Sul;55;Sul;-30.17;-53.50
+SC;Santa Catarina;47;Sul;-27.45;-50.95
+SC;Santa Catarina;48;Sul;-27.45;-50.95
+SC;Santa Catarina;49;Sul;-27.45;-50.95

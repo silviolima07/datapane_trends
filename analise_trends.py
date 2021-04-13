@@ -38,6 +38,16 @@ df = df.loc[df.year2 > 2017]
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
+df_region['estado'] = df_region.index
+
+df_coor = pd.read_csv('latlong.csv', sep=';', usecols=['estado','lat', 'long'])
+df_coor = df_coor.drop_duplicates()
+
+df_region2 = df_region.merge(df_coor)
+
+
+
+
 # display the top 20 rows in dataframe
 print(df.head(20))
 
@@ -66,13 +76,13 @@ fig3 = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], valu
 
 # Mapa do Brasil
 
-#coordenadas=[]
-#for lat,lng in zip(df_vagas.latitude,df_vagas.longitude):
-#  coordenadas.append([lat,lng])
+coordenadas=[]
+for lat,lng in zip(df_region2.lat,df_region2.long):
+  coordenadas.append([lat,lng])
 
-#mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=4,tiles='Stamen Toner')
+mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=4,tiles='Stamen Toner')
 
-#mapa.add_child(plugins.HeatMap(coordenadas))
+mapa.add_child(plugins.HeatMap(coordenadas))
 
 ####
 #title_html = '''
@@ -88,11 +98,13 @@ r = dp.Report(
     dp.Page(
        label='Dashes',
        blocks=[
-               "#### Pytrends.interest_over_time", 
+               "#### Heatmap do Trends", 
+               dp.Plot(mapa),
+               "#### Pytrends -> interest_over_time", 
                dp.Plot(fig1),
-               "#### Pytrends.interest_by_region", 
+               "#### Pytrends -> interest_by_region", 
                dp.Plot(fig2),
-               "#### Treemap", 
+               "#### Distribution - Treemap", 
                dp.Plot(fig3)
                ]
      ),
