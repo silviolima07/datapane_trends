@@ -55,19 +55,33 @@ print(df.head(20))
 # display the top 20 rows in dataframe
 print(df_region.head(20))
 
-fig1 = px.line(df,df.index, 'jair bolsonaro', title='Bolsonaro x Date', labels= {'x': 'Date'})
+fig1_bol = px.line(df,df.index, 'jair bolsonaro', title='Bolsonaro x Date', labels= {'x': 'Date'})
+
+fig1_covid = px.line(df,df.index, 'covid', title='Covid x Date', labels= {'x': 'Date'})
+
+fig1_lock = px.line(df,df.index, 'lockdown', title='Lockdown x Date', labels= {'x': 'Date'})
 
 
 ##########################
 
-fig2 = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, title = "Bolsonaro x Estado")
+fig2_bol = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, title = "Bolsonaro x Estado")
+
+fig2_covid = px.bar(df_region, x=df_region.index, y="covid", color=df_region.index, title = "Covid x Estado")
+
+fig2_lock = px.bar(df_region, x=df_region.index, y="lockdown", color=df_region.index, title = "Lockdown x Estado")
 
 
 ##########################
 
 
-fig3 = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='jair bolsonaro',
+fig3_bol = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='jair bolsonaro',
                   color='jair bolsonaro')
+                  
+fig3_covid = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='covid',
+                  color='covid')
+
+fig3_lock = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='lockdown',
+                  color='lockdown')                  
 
 ##########################
 
@@ -77,13 +91,31 @@ fig3 = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], valu
 
 # Mapa do Brasil
 
-coordenadas=[]
-for lat,lng in zip(df_region2.lat,df_region2.long):
-  coordenadas.append([lat,lng])
+def setar_coordenadas(df):
+    coordenadas=[]
+    for lat,lng in zip(df['lat'],df['long']):
+        coordenadas.append([lat,lng])
+    return coordenadas
+    
+df_region_covid = df_region2[['covid', 'lat', 'long']]
+df_region_jair_bolsonaro = df_region2[['jair bolsonaro', 'lat', 'long']]
+df_region_lockdown = df_region2[['lockdown', 'lat', 'long']]
+
+
+#coordenadas=[]
+#for lat,lng in zip(df_region_covid.lat,df_region_covid.long):
+#  coordenadas.append([lat,lng])
+
+coordenadas_covid = setar_coordenadas(df_region_covid)
+coordenadas_jair_bolsonaro = setar_coordenadas(df_region_jair_bolsonaro)
+coordenadas_lockdown = setar_coordenadas(df_region_lockdown)
 
 mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=4,tiles='Stamen Toner')
 
-mapa.add_child(plugins.HeatMap(coordenadas))
+mapa_covid = mapa.add_child(plugins.HeatMap(coordenadas_covid))
+mapa_jair_bolsonaro = mapa.add_child(plugins.HeatMap(coordenadas_jair_bolsonaro))
+mapa_lockdown = mapa.add_child(plugins.HeatMap(coordenadas_lockdown))    
+
 
 ####
 #title_html = '''
@@ -97,31 +129,45 @@ mapa.add_child(plugins.HeatMap(coordenadas))
 
 r = dp.Report(
     dp.Page(
-       label='Dashes',
+       label='Covid',
        blocks=[
                "#### Heatmap do Trends", 
-               dp.Plot(mapa),
+               dp.Plot(mapa_covid),
                "#### ", 
-               dp.Plot(fig1),
+               dp.Plot(fig1_covid),
                "#### Pytrends -> interest_by_region", 
-               dp.Plot(fig2),
+               dp.Plot(fig2_lock),
                "#### Distribution - Treemap", 
-               dp.Plot(fig3)
+               dp.Plot(fig3_covid)
                ]
      ),
     dp.Page(
-       label='Interesse Ao longo do Tempo',
-       blocks=["#### Bolsonaro",
-       dp.DataTable(df, label="Bolsonaro")]
+       label='Bolsonaro',
+       blocks=["#### Heatmap do Trends", 
+               dp.Plot(mapa_jair_bolsonaro),
+               "#### ", 
+               dp.Plot(fig1_bol),
+               "#### Pytrends -> interest_by_region", 
+               dp.Plot(fig2_bol),
+               "#### Distribution - Treemap", 
+               dp.Plot(fig3_bol)
+               ]
      ),
     dp.Page(
-       label='Interesse Por Regiao',
-       blocks=["#### Pytrends -> interest_over_time",
-       dp.Plot(fig1)]
+       label='Lockdown',
+       blocks=["#### Heatmap do Trends", 
+               dp.Plot(mapa_lockdown),
+               "#### ", 
+               dp.Plot(fig1_lock),
+               "#### Pytrends -> interest_by_region", 
+               dp.Plot(fig2_lock),
+               "#### Distribution - Treemap", 
+               dp.Plot(fig3_)
+               ]
      )
     )
 r
 # Publish
-r.publish(name=f'Google Trends', open = False, description='Analisando termos no google trends')
+r.publish(name=f'Google Trends', open = False, description='Analisando os termos: Covid, Jair Bolsonaro e Lockdown')
 
      
