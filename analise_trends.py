@@ -45,7 +45,7 @@ fig1 = px.line(df,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', lab
 
 ##########################
 
-fig1_region = px.histogram(df_region, x= "jair bolsonaro', color=df_region.index, title=' ')
+fig1_region = px.histogram(df_region, x= "jair bolsonaro", color=df_region.index, title=' ')
 
 fig1_region.show()
 
