@@ -30,10 +30,17 @@ pytrends.build_payload(kw_list, timeframe='2020-01-04 2021-01-08', geo='BR')
 # store interest over time information in df
 df = pytrends.interest_over_time()
 
+df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
+
 # display the top 20 rows in dataframe
 print(df.head(20))
 
+# display the top 20 rows in dataframe
+print(df_region.head(20))
+
 fig1 = px.line(df,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
+
+fig1_region = px.line(df_region,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
 
 
 ##########################
@@ -76,41 +83,22 @@ r = dp.Report(
     dp.Page(
        label='Dashes',
        blocks=[
-               "#### Heatmap de Vagas pelo Brasil", 
+               "#### Bolsonaro", 
                dp.Plot(fig1),
-               "#### Total Vagas", 
-               dp.Plot(fig1),
-               "#### Total Vagas por Estado", 
-               dp.Plot(fig1),
-               "#### Total Vagas por Nível", 
-               dp.Plot(fig1)
+               "#### Região", 
+               dp.Plot(fig1_region)
                ]
      ),
     dp.Page(
-       label='Cientista de Dados',
-       blocks=["#### Vagas - Cientista de Dados",
-       dp.DataTable(df, label="Cientista de Dados")]
+       label='Interesse Ao longo do Tempo',
+       blocks=["#### Bolsonaro",
+       dp.DataTable(df, label="Bolsonaro")]
      ),
     dp.Page(
-       label='Analista de Dados',
-       blocks=["#### Vagas Analista de Dados", 
-       dp.DataTable(df, label= "Analista de Dados")]
-     ),
-    dp.Page(
-       label='Engenheiro de Dados',
-       blocks=["#### Vagas - Engenheiro de Dados", 
-       dp.DataTable(df, label = "Engenheiro de Dados")]
-     ),
-    dp.Page(
-       label='Engenheiro de Machine Learning',
-       blocks=["#### Vagas - Engenheiro de Machine Learning", 
-       dp.DataTable(df, label = "Engenheiro de Machine Learning")]
+       label='Interesse Por Regiao',
+       blocks=["#### Região", 
+       dp.DataTable(df_region, label= "Região")]
      )
-    
-
-    
-    
-
     )
 r
 # Publish
