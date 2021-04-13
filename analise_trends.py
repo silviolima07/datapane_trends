@@ -68,7 +68,7 @@ fig2_bol = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_reg
 
 fig2_covid = px.bar(df_region, x=df_region.index, y="covid", color=df_region.index, title = "Covid x Estado")
 
-fig2_lock = px.bar(df_region, x=df_region.index, y="lockdown", color=df_region.index, title = "Lockdown x Estado")
+fig2_lock = px.bar(df_region, x=df_region.index, y="lockdown", title = "Lockdown x Estado")
 
 
 ##########################
