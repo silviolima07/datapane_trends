@@ -21,14 +21,20 @@ dp.login(token= datapane_token)
 ##########################
 
 # execute the TrendReq method by passing the host language (hl) and timezone (tz) parameters
-pytrends = TrendReq(hl='en-US', tz=360)
+pytrends = TrendReq(hl='pt-BR', tz=360)
 
 kw_list = ["covid", "lockdown", "jair bolsonaro"]
 
-pytrends.build_payload(kw_list, timeframe='2020-01-04 2021-01-08', geo='BR')
+pytrends.build_payload(kw_list, timeframe='today 5-y', geo='BR')
 
 # store interest over time information in df
 df = pytrends.interest_over_time()
+
+# Filter last 3 years
+
+df['year'] = df.index
+df['year2'] = df.year.dt.year
+df = df.loc[df.year2 > 2017]
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
@@ -54,6 +60,9 @@ fig1_region = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_
 ##########################
 
 #fig2 = px.histogram(df_vagas, x="nivel", color="nivel", hover_name ='nivel', facet_col= 'vaga')
+
+fig2 = px.treemap(df_region, path=[px.Constant('Brasil')], values='jai bolsonaro',
+                  color=df_region.index, hover_data=['iso_alpha'])
 
 ##########################
 
@@ -86,7 +95,7 @@ r = dp.Report(
        label='Dashes',
        blocks=[
                "#### Bolsonaro x Date", 
-               dp.Plot(fig1),
+               dp.Plot(fig2),
                "#### Bolsonaro x Região", 
                dp.Plot(fig1_region)
                ]
