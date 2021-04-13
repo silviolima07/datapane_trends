@@ -33,8 +33,9 @@ df = pytrends.interest_over_time()
 # Filter last 3 years
 
 df['year'] = df.index
-df['year2'] = df.year.dt.year
-df = df.loc[df.year2 > 2017]
+df['year'] = df.year.dt.year
+df = df.loc[df.year > 2017]
+df = df[['covid', 'lockdown', 'jair bolsonaro']]
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
@@ -100,7 +101,7 @@ r = dp.Report(
        blocks=[
                "#### Heatmap do Trends", 
                dp.Plot(mapa),
-               "#### Pytrends -> interest_over_time", 
+               "#### ", 
                dp.Plot(fig1),
                "#### Pytrends -> interest_by_region", 
                dp.Plot(fig2),
@@ -115,8 +116,8 @@ r = dp.Report(
      ),
     dp.Page(
        label='Interesse Por Regiao',
-       blocks=["#### Região", 
-       dp.DataTable(df_region, label= "Região")]
+       blocks=["#### Pytrends -> interest_over_time",
+       dp.Plot(fig1)]
      )
     )
 r
