@@ -18,7 +18,7 @@ datapane_token = sys.argv[1]
 
 dp.login(token= datapane_token)
 
-##########################
+###########################
 
 # execute the TrendReq method by passing the host language (hl) and timezone (tz) parameters
 pytrends = TrendReq(hl='pt-BR', tz=360)
