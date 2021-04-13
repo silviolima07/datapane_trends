@@ -64,9 +64,9 @@ fig1_lock = px.line(df,df.index, 'lockdown', title='Lockdown x Date', labels= {'
 
 ##########################
 
-fig2_bol = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, title = "Bolsonaro x Estado")
+fig2_bol = px.bar(df_region, x=df_region.index, y="jair bolsonaro", title = "Bolsonaro x Estado")
 
-fig2_covid = px.bar(df_region, x=df_region.index, y="covid", color=df_region.index, title = "Covid x Estado")
+fig2_covid = px.bar(df_region, x=df_region.index, y="covid", title = "Covid x Estado")
 
 fig2_lock = px.bar(df_region, x=df_region.index, y="lockdown", title = "Lockdown x Estado")
 
@@ -136,7 +136,7 @@ r = dp.Report(
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
                "#### Bar Plot -> interest_by_region", 
-               dp.Plot(fig2_lock),
+               dp.Plot(fig2_covid),
                "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_covid)
                ]
