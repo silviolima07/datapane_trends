@@ -1,0 +1,33 @@
+name: Schedule publish datapane                                              
+
+on:
+   workflow_dispatch:
+   
+jobs:                          
+
+  publish_datapane:                            
+    name: publish datapane trends                       
+    runs-on: ubuntu-latest     
+    steps:                             
+    - name: Check-out the repo under $GITHUB_WORKSPACE                               
+      uses: actions/checkout@v2         
+                                                  
+    - name: Set up Python 3.8                               
+      uses: actions/setup-python@v2                               
+      with:                                 
+        python-version: '3.8'          
+                                                  
+    - name: Install altair                              
+      run: pip install altair
+    
+    - name: Install datapane                               
+      run: pip install datapane
+
+    - name: Install plotly-express                             
+      run: pip install plotly-express      
+ 
+    - name: running script analise_trends.py                                
+      run: python analise_trends.py ${{ secrets.datapane_token }}
+      
+    - name: Listar directory                            
+      run: ls -la  
