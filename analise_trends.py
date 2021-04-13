@@ -40,14 +40,14 @@ print(df_region.head(20))
 
 fig1 = px.line(df,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
 
-fig1_region = px.line(df_region,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
+#fig1_region = px.histogram(df_region,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
 
 
 ##########################
 
-#fig1 = px.histogram(df_vagas, x="estado", color="vaga", title=' ', hover_name ='vaga')
+fig1_region = px.histogram(df_region, x= df_region.index, color=df_region.index, title=' ')
 
-#fig1.show()
+fig1_region.show()
 
 ##########################
 
