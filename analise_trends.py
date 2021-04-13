@@ -53,7 +53,7 @@ fig1 = px.line(df,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', lab
 
 #fig1_region = px.histogram(df_region, x= df_region.index, hover_name = 'jair bolsonaro', color=df_region.index)
 
-fig1_region = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, barmode="group")
+fig2 = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, barmode="group")
 
 #fig1_region.show()
 
@@ -61,8 +61,8 @@ fig1_region = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_
 
 #fig2 = px.histogram(df_vagas, x="nivel", color="nivel", hover_name ='nivel', facet_col= 'vaga')
 
-fig2 = px.treemap(df_region, path=[px.Constant('Brasil')], values='jair bolsonaro',
-                  color=df_region.index, hover_data=['jair bolsonaro'])
+fig3 = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='jair bolsonaro',
+                  color='jair bolsonaro')
 
 ##########################
 
@@ -95,9 +95,11 @@ r = dp.Report(
        label='Dashes',
        blocks=[
                "#### Bolsonaro x Date", 
+               dp.Plot(fig1),
+               "#### Bar plot", 
                dp.Plot(fig2),
-               "#### Bolsonaro x Região", 
-               dp.Plot(fig1_region)
+               "#### Treemap", 
+               dp.Plot(fig3)
                ]
      ),
     dp.Page(
