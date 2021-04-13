@@ -133,11 +133,11 @@ r = dp.Report(
        blocks=[
                "#### Heatmap do Trends", 
                dp.Plot(mapa_covid),
-               "#### ", 
+               "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
-               "#### Pytrends -> interest_by_region", 
+               "#### Bar Plot -> interest_by_region", 
                dp.Plot(fig2_lock),
-               "#### Distribution - Treemap", 
+               "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_covid)
                ]
      ),
@@ -145,11 +145,11 @@ r = dp.Report(
        label='Bolsonaro',
        blocks=["#### Heatmap do Trends", 
                dp.Plot(mapa_jair_bolsonaro),
-               "#### ", 
+               "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_bol),
-               "#### Pytrends -> interest_by_region", 
+               "#### Bar Plot -> interest_by_region", 
                dp.Plot(fig2_bol),
-               "#### Distribution - Treemap", 
+               "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_bol)
                ]
      ),
@@ -157,17 +157,17 @@ r = dp.Report(
        label='Lockdown',
        blocks=["#### Heatmap do Trends", 
                dp.Plot(mapa_lockdown),
-               "#### ", 
+               "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_lock),
-               "#### Pytrends -> interest_by_region", 
+               "#### Bar Plot - > interest_by_region", 
                dp.Plot(fig2_lock),
-               "#### Distribution - Treemap", 
+               "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_lock)
                ]
      )
     )
 r
 # Publish
-r.publish(name=f'Google Trends', open = False, description='Analisando desde jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
+r.publish(name=f'Google Trends', open = False, description='Analisando de jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
 
      
