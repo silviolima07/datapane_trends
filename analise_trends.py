@@ -9,7 +9,6 @@ import folium
 import plotly.express as px
 import sys
 
-#!pip install pytrends
 from pytrends.request import TrendReq
 
 import plotly.io as pio
@@ -90,22 +89,22 @@ r = dp.Report(
     dp.Page(
        label='Cientista de Dados',
        blocks=["#### Vagas - Cientista de Dados",
-       dp.DataTable(df_CD[colunas], label="Cientista de Dados")]
+       dp.DataTable(df, label="Cientista de Dados")]
      ),
     dp.Page(
        label='Analista de Dados',
        blocks=["#### Vagas Analista de Dados", 
-       dp.DataTable(df_AD[colunas], label= "Analista de Dados")]
+       dp.DataTable(df, label= "Analista de Dados")]
      ),
     dp.Page(
        label='Engenheiro de Dados',
        blocks=["#### Vagas - Engenheiro de Dados", 
-       dp.DataTable(df_ED[colunas], label = "Engenheiro de Dados")]
+       dp.DataTable(df, label = "Engenheiro de Dados")]
      ),
     dp.Page(
        label='Engenheiro de Machine Learning',
        blocks=["#### Vagas - Engenheiro de Machine Learning", 
-       dp.DataTable(df_EML[colunas], label = "Engenheiro de Machine Learning")]
+       dp.DataTable(df, label = "Engenheiro de Machine Learning")]
      )
     
 
