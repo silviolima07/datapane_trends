@@ -44,29 +44,23 @@ print(df.head(20))
 # display the top 20 rows in dataframe
 print(df_region.head(20))
 
-fig1 = px.line(df,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
-
-#fig1_region = px.histogram(df_region,df.index, 'jair bolsonaro', title='Jair Bolsonaro x Date', labels= {'x': 'Date'})
+fig1 = px.line(df,df.index, 'jair bolsonaro', title='Bolsonaro x Date', labels= {'x': 'Date'})
 
 
 ##########################
 
-#fig1_region = px.histogram(df_region, x= df_region.index, hover_name = 'jair bolsonaro', color=df_region.index)
+fig2 = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, title = "Bolsonaro x Estado")
 
-fig2 = px.bar(df_region, x=df_region.index, y="jair bolsonaro", color=df_region.index, labels= {'x': 'Região'})
-
-#fig1_region.show()
 
 ##########################
 
-#fig2 = px.histogram(df_vagas, x="nivel", color="nivel", hover_name ='nivel', facet_col= 'vaga')
 
 fig3 = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='jair bolsonaro',
                   color='jair bolsonaro')
 
 ##########################
 
-#fig3 = px.histogram(df_vagas, x="vaga", color="vaga", hover_name ='vaga')
+
 
 ##########################
 
@@ -94,9 +88,9 @@ r = dp.Report(
     dp.Page(
        label='Dashes',
        blocks=[
-               "#### Bolsonaro x Date", 
+               "#### Pytrends.interest_over_time", 
                dp.Plot(fig1),
-               "#### Bar plot", 
+               "#### Pytrends.interest_by_region", 
                dp.Plot(fig2),
                "#### Treemap", 
                dp.Plot(fig3)
