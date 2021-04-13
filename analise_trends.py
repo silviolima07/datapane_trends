@@ -162,7 +162,7 @@ r = dp.Report(
                "#### Pytrends -> interest_by_region", 
                dp.Plot(fig2_lock),
                "#### Distribution - Treemap", 
-               dp.Plot(fig3_)
+               dp.Plot(fig3_lock)
                ]
      )
     )
