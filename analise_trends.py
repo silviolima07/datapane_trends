@@ -181,6 +181,6 @@ r = dp.Report(
     )
 r
 # Publish
-r.publish(name=f'Google Trends', open = False, description='Analisando de jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
+r.publish(name=f'Google Trends -<b>Python lib pytrends', open = False, description='Analisando de jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
 
      
