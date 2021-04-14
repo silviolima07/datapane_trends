@@ -62,11 +62,11 @@ print(df.head(20))
 # display the top 20 rows in dataframe
 print(df_region.head(20))
 
-fig1_bol = px.line(df,df.index, 'jair bolsonaro', title='Bolsonaro x Date', labels= {'x': 'Date'})
+fig1_bol = px.line(df,df.date, 'jair bolsonaro', title='Bolsonaro x Date', labels= {'x': 'Date'})
 
-fig1_covid = px.line(df,df.index, 'covid', title='Covid x Date', labels= {'x': 'Date'})
+fig1_covid = px.line(df,df.date, 'covid', title='Covid x Date', labels= {'x': 'Date'})
 
-fig1_lock = px.line(df,df.index, 'lockdown', title='Lockdown x Date', labels= {'x': 'Date'})
+fig1_lock = px.line(df,df.date, 'lockdown', title='Lockdown x Date', labels= {'x': 'Date'})
 
 
 ##########################
