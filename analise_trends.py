@@ -27,26 +27,18 @@ kw_list = ["covid", "lockdown", "jair bolsonaro"]
 pytrends.build_payload(kw_list, timeframe='today 5-y', geo='BR')
 
 # store interest over time information in df
-df = pytrends.interest_over_time()
+#df = pytrends.interest_over_time()
+df_ot = pd.DataFrame(pytrends.interest_over_time()).drop(columns='isPartial')
 
 # Filter last 3 years
 
-df['year'] = df.index
-df['year'] = df.year.dt.year
-df = df.loc[df.year > 2017]
-df = df[['covid', 'lockdown', 'jair bolsonaro']]
-df['date'] = pd.to_datetime(df.index, format='%d/%m/%y')
+df_ot['date'] = df.index
+df_ot['date'] = df.date.dt.year
+df_ot = df_ot.loc[df.date > 2017]
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
 df_region['estado'] = df_region.index
-
-# Arquivo csv com as coordenadas de latitude e longitude de cada Estado.
-df_coor = pd.read_csv('latlong.csv', sep=';', usecols=['estado','lat', 'long'])
-df_coor = df_coor.drop_duplicates()
-
-# Criado dataset com as informações de interesse por Estado e suas coordenadas.
-df_region2 = df_region.merge(df_coor)
 
 #################################
 
@@ -61,9 +53,9 @@ print(df_region.head(20))
 
 # Fig1 é gráfico gerado do interesse dos termos escolhidos ao longo do tempo.
 
-fig1_covid = px.line(df,df.date, 'covid', title='Covid x Date')
+fig1_covid = px.line(df_ot,df.date, 'covid', title='Covid x Date')
 
-fig1_lock = px.line(df,df.date, 'lockdown', title='Lockdown x Date')
+fig1_lock = px.line(df_ot,df.date, 'lockdown', title='Lockdown x Date')
 
 
 ##########################
@@ -148,7 +140,7 @@ r = dp.Report(
                dp.Plot(fig_R)]
      ),
     dp.Page(
-       label='Covid',
+       label='Trend search Covid',
        blocks=[
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
@@ -159,7 +151,7 @@ r = dp.Report(
                ]
      ),
     dp.Page(
-       label='Lockdown',
+       label='Trend search Lockdown',
        blocks=[
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_lock),
