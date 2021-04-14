@@ -131,7 +131,7 @@ r = dp.Report(
     dp.Page(
        label='Covid',
        blocks=[
-               "#### Heatmap do Trends", 
+               "#### Heatmap do termo Covid pelo Brasil", 
                dp.Plot(mapa_covid),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
@@ -143,7 +143,7 @@ r = dp.Report(
      ),
     dp.Page(
        label='Bolsonaro',
-       blocks=["#### Heatmap do Trends", 
+       blocks=["#### Heatmap do termo Jair Bolsonaro pelo Brasil", 
                dp.Plot(mapa_jair_bolsonaro),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_bol),
@@ -155,7 +155,7 @@ r = dp.Report(
      ),
     dp.Page(
        label='Lockdown',
-       blocks=["#### Heatmap do Trends", 
+       blocks=["#### Heatmap do termo Lockdown pelo Brasil", 
                dp.Plot(mapa_lockdown),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_lock),
