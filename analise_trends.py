@@ -47,6 +47,12 @@ df_coor = df_coor.drop_duplicates()
 
 df_region2 = df_region.merge(df_coor)
 
+#################################
+
+df_top = pytrends.trending_searches(pn='brazil')
+df_top10 = df_top[0:10]
+
+#################################
 
 
 
@@ -129,6 +135,13 @@ mapa_lockdown = mapa.add_child(plugins.HeatMap(coordenadas_lockdown))
 # Create report
 
 r = dp.Report(
+    dp.Page(
+       label='Top 10 trending_searches hoje',
+       blocks=[
+               "#### Termos mais procurados", 
+               dp.DataTable(df_top10, label= "Top 10")]
+               ]
+     ),
     dp.Page(
        label='Covid',
        blocks=[
