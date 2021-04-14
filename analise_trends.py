@@ -125,7 +125,7 @@ r = dp.Report(
        label='Trend search Cloud Plataforma',
        blocks=[
                "#### AWS, AZURE e GCP ",
-               dp.Plot(fig_clouds)s]
+               dp.Plot(fig_clouds)]
      ),
     dp.Page(
        label='Covid',
