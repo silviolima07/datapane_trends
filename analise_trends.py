@@ -81,13 +81,13 @@ fig2_lock = px.bar(df_region, x=df_region.estado, y="lockdown", title = "Lockdow
 ##########################
 
 
-fig3_bol = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='jair bolsonaro',
+fig3_bol = px.treemap(df_region, path=[px.Constant('Termo Jair Bolsonaro pelo BRASIL'), df_region.index], values='jair bolsonaro',
                   color='jair bolsonaro')
                   
-fig3_covid = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='covid',
+fig3_covid = px.treemap(df_region, path=[px.Constant('Termo Covid no BRASIL'), df_region.index], values='covid',
                   color='covid')
 
-fig3_lock = px.treemap(df_region, path=[px.Constant('BRASIL'), df_region.index], values='lockdown',
+fig3_lock = px.treemap(df_region, path=[px.Constant('Termo Lockdown no BRASIL'), df_region.index], values='lockdown',
                   color='lockdown')                  
 
 ##########################
@@ -144,7 +144,7 @@ r = dp.Report(
     dp.Page(
        label='Covid',
        blocks=[
-               "#### Heatmap do termo Covid pelo Brasil", 
+               "#### Heatmap do termo Covid no Brasil", 
                dp.Plot(mapa_covid),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
@@ -156,7 +156,7 @@ r = dp.Report(
      ),
     dp.Page(
        label='Bolsonaro',
-       blocks=["#### Heatmap do termo Jair Bolsonaro pelo Brasil", 
+       blocks=["#### Heatmap do termo Jair Bolsonaro no Brasil", 
                dp.Plot(mapa_jair_bolsonaro),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_bol),
@@ -168,7 +168,7 @@ r = dp.Report(
      ),
     dp.Page(
        label='Lockdown',
-       blocks=["#### Heatmap do termo Lockdown pelo Brasil", 
+       blocks=["#### Heatmap do termo Lockdown no Brasil", 
                dp.Plot(mapa_lockdown),
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_lock),
@@ -181,6 +181,6 @@ r = dp.Report(
     )
 r
 # Publish
-r.publish(name=f'Google Trends com Python Pytrends', open = False, description='Analisando de jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
+r.publish(name=f'Google Trends com Python Pytrends', open = True, description='Analisando de jan/2018 até hoje, os termos: Covid, Jair Bolsonaro e Lockdown')
 
      
