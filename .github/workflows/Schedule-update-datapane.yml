@@ -1,7 +1,8 @@
 name: Schedule publish datapane                                              
 
 on:
-   workflow_dispatch:
+   schedule:
+      - cron: "0 11,16 * * *"
    
 jobs:                          
 
