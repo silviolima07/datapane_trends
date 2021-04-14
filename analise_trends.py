@@ -32,9 +32,9 @@ df_ot = pd.DataFrame(pytrends.interest_over_time()).drop(columns='isPartial')
 
 # Filter last 3 years
 
-df_ot['date'] = df.index
-df_ot['date'] = df.date.dt.year
-df_ot = df_ot.loc[df.date > 2017]
+df_ot['date'] = df_ot.index
+df_ot['date'] = df_ot.date.dt.year
+df_ot = df_ot.loc[df_ot.date > 2017]
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
