@@ -135,12 +135,12 @@ mapa_lockdown = mapa.add_child(plugins.HeatMap(coordenadas_lockdown))
 # Create report
 
 r = dp.Report(
-    dp.Page(
-       label='Top 10 trending_searches hoje',
-       blocks=[
-               "#### Termos mais procurados", 
-               dp.DataTable(df_top10, label= "Top 10")]
-     ),
+    #dp.Page(
+    #   label='Top 10 trending_searches hoje',
+    #   blocks=[
+    #           "#### Termos mais procurados", 
+    #           dp.DataTable(df_top10, label= "Top 10")]
+    # ),
     dp.Page(
        label='Covid',
        blocks=[
