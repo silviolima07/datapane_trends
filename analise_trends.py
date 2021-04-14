@@ -36,7 +36,7 @@ df['year'] = df.index
 df['year'] = df.year.dt.year
 df = df.loc[df.year > 2017]
 df = df[['covid', 'lockdown', 'jair bolsonaro']]
-df['date'] = pd.to_datetime(df.index, format='%d/%m/%y %H:%M:%S')
+df['date'] = pd.to_datetime(df.index, format='%d/%m/%y')
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
