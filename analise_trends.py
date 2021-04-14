@@ -98,6 +98,14 @@ fig_clouds.add_trace(go.Bar(x=x, y=df2.AZURE, name='AZURE'))
 fig_clouds.add_trace(go.Bar(x=x, y=df2.GCP, name='GCP'))
 
 fig_clouds.update_layout(barmode='stack', xaxis={'categoryorder':'category ascending'}, )
+
+fig.update_layout(
+    title={
+        'text': "Cloud Plataform",
+        'y':0.9,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
 fig_clouds.show()
 
 
@@ -126,9 +134,9 @@ fig_python
 
 r = dp.Report(
     dp.Page(
-       label='Trend search Cloud Plataforma',
+       label='Trend search Cloud Plataform',
        blocks=[
-               "#### AWS, AZURE e GCP ",
+               "#### Bar Plot -> interest_by_region",
                dp.Plot(fig_clouds)]
      ),
      dp.Page(
@@ -164,6 +172,6 @@ r = dp.Report(
     )
 r
 # Publish
-r.publish(name=f'Google Trends com Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
+r.publish(name=f'Google Trends by Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
 
      
