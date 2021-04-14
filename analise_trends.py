@@ -140,7 +140,6 @@ r = dp.Report(
        blocks=[
                "#### Termos mais procurados", 
                dp.DataTable(df_top10, label= "Top 10")]
-               ]
      ),
     dp.Page(
        label='Covid',
