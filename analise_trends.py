@@ -91,7 +91,7 @@ df_ibr = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_
 
 import plotly.graph_objects as go
 
-df2 = df_ibr.sort_values('AWS', ascending=False).head(20)
+df2 = df_ibr.sort_values('AWS', ascending=False)
 x=df2.index
 fig_clouds = go.Figure(go.Bar(x=x, y=df2.AWS, name='AWS'))
 fig_clouds.add_trace(go.Bar(x=x, y=df2.AZURE, name='AZURE'))
