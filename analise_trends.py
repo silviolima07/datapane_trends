@@ -99,7 +99,7 @@ fig_clouds.add_trace(go.Bar(x=x, y=df2.GCP, name='GCP'))
 
 fig_clouds.update_layout(barmode='stack', xaxis={'categoryorder':'category ascending'}, )
 
-fig.update_layout(
+fig_clouds.update_layout(
     title={
         'text': "Cloud Plataform",
         'y':0.9,
