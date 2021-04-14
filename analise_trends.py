@@ -36,7 +36,7 @@ df['year'] = df.index
 df['year'] = df.year.dt.year
 df = df.loc[df.year > 2017]
 df = df[['covid', 'lockdown', 'jair bolsonaro']]
-df['date'] = df.index
+df['date'] = pd.to_datetime(df.index, format='%d/%m/%y %H:%M:%S')
 
 df_region = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
@@ -164,7 +164,7 @@ r = dp.Report(
                dp.Plot(fig2_lock),
                "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_lock),
-               dp.DataTable(df, label="Lockdown")
+               dp.DataTable(df[['date', 'lockdown']], label="Lockdown")
                ]
      )
     )
