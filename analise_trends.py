@@ -64,11 +64,11 @@ fig1_lock = px.line(df,df.index, 'lockdown', title='Lockdown x Date', labels= {'
 
 ##########################
 
-fig2_bol = px.bar(df_region, x=df_region.index, y="jair bolsonaro", title = "Bolsonaro x Estado")
+fig2_bol = px.bar(df_region, x=df_region.estado, y="jair bolsonaro", title = "Bolsonaro x Estado")
 
-fig2_covid = px.bar(df_region, x=df_region.index, y="covid", title = "Covid x Estado")
+fig2_covid = px.bar(df_region, x=df_region.estado, y="covid", title = "Covid x Estado")
 
-fig2_lock = px.bar(df_region, x=df_region.index, y="lockdown", title = "Lockdown x Estado", labels= {'x': 'TESTE'})
+fig2_lock = px.bar(df_region, x=df_region.estado, y="lockdown", title = "Lockdown x Estado")
 
 
 ##########################
