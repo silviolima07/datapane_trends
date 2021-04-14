@@ -163,7 +163,7 @@ r = dp.Report(
                dp.Plot(fig2_lock),
                "#### Treemap - > interest_by_region", 
                dp.Plot(fig3_lock),
-               dp.DataTable(df[['lockdown']], label="Lockdown")
+               dp.DataTable(df, label="Lockdown")
                ]
      )
     )
