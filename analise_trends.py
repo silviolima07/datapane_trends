@@ -44,7 +44,7 @@ df_region['estado'] = df_region.index
 
 
 # Mostra o interesse ao longo do tempo nos termos escolhidos
-print(df.head(20))
+print(df_ot.head(20))
 
 # Mostra o interesse por região nos termos escolhidos
 print(df_region.head(20))
