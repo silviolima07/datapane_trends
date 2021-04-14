@@ -53,9 +53,9 @@ print(df_region.head(20))
 
 # Fig1 é gráfico gerado do interesse dos termos escolhidos ao longo do tempo.
 
-fig1_covid = px.line(df_ot,df.date, 'covid', title='Covid x Date')
+fig1_covid = px.line(df_ot,df_ot.date, 'covid', title='Covid x Date')
 
-fig1_lock = px.line(df_ot,df.date, 'lockdown', title='Lockdown x Date')
+fig1_lock = px.line(df_ot,df_ot.date, 'lockdown', title='Lockdown x Date')
 
 
 ##########################
