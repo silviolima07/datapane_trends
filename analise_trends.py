@@ -156,14 +156,14 @@ r = dp.Report(
     dp.Page(
        label='Trend search Cloud Plataform',
        blocks=[
-               "#### Bar Plot -> interest_by_region",
-               dp.Plot(fig_clouds),
                "#### Treemap -> interest_by_region AWS",
                dp.Plot(figcloud_aws),
                "#### Treemap -> interest_by_region AZURE",
                dp.Plot(figcloud_azure),
                "#### Treemap -> interest_by_region GCP",
-               dp.Plot(figcloud_gcp)]
+               dp.Plot(figcloud_gcp),
+               "#### Bar Plot -> interest_by_region",
+               dp.Plot(fig_clouds)]
      ),
      dp.Page(
        label='Trend search Linguagens',
@@ -198,6 +198,6 @@ r = dp.Report(
     )
 r
 # Publish
-r.publish(name=f'Google Trends with Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
+r.publish(name=f'Google Trends by Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
 
      
