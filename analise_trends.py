@@ -87,6 +87,15 @@ pytrends.build_payload(search_list, timeframe='today 5-y', geo='BR')
 
 df_ibr = pytrends.interest_by_region(resolution='REGION', inc_low_vol=True, inc_geo_code=False)
 
+df_ibr['estado'] = df_ibr.index
+
+# Remover as linhas com valor 0
+df_ibr = df_ibr.loc[(df_ibr['AWS'] > 0) & (df_ibr['AZURE'] > 0) & (df_ibr['GCP'] > 0)]
+
+
+
+
+
 # Ordenar e Plotar
 
 import plotly.graph_objects as go
@@ -108,6 +117,17 @@ fig_clouds.update_layout(
         'yanchor': 'top'})
 fig_clouds.show()
 
+
+# Fig3 é gráfico gerado do interesse dos termos escolhidos por Estado.
+                  
+figcloud_aws = px.treemap(df_ibr, path=[px.Constant('Termo AWS no BRASIL'), df_ibr.estado], values='AWS',
+                  color='AWS')
+
+figcloud_azure = px.treemap(df_ibr, path=[px.Constant('Termo AZURE no BRASIL'), df_ibr.estado], values='AZURE',
+                 color='AZURE') 
+
+figcloud_gcp = px.treemap(df_ibr, path=[px.Constant('Termo GCP no BRASIL'), df_ibr.estado], values='GCP
+                 color='GCP')
 
 #######################
 
@@ -137,7 +157,13 @@ r = dp.Report(
        label='Trend search Cloud Plataform',
        blocks=[
                "#### Bar Plot -> interest_by_region",
-               dp.Plot(fig_clouds)]
+               dp.Plot(fig_clouds),
+               "#### Treemap -> interest_by_region AWS",
+               dp.Plot(figcloud_aws),
+               "#### Treemap -> interest_by_region AZURE",
+               dp.Plot(figcloud_azure),
+               "#### Treemap -> interest_by_region GCP",
+               dp.Plot(figcloud_gcp)]
      ),
      dp.Page(
        label='Trend search Linguagens',
@@ -172,6 +198,6 @@ r = dp.Report(
     )
 r
 # Publish
-r.publish(name=f'Google Trends by Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
+r.publish(name=f'Google Trends with Python Pytrends', open = True, description='Analisando: interest_over_time e interest_by_region')
 
      
