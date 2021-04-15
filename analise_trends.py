@@ -126,7 +126,7 @@ figcloud_aws = px.treemap(df_ibr, path=[px.Constant('Termo AWS no BRASIL'), df_i
 figcloud_azure = px.treemap(df_ibr, path=[px.Constant('Termo AZURE no BRASIL'), df_ibr.estado], values='AZURE',
                  color='AZURE') 
 
-figcloud_gcp = px.treemap(df_ibr, path=[px.Constant('Termo GCP no BRASIL'), df_ibr.estado], values='GCP
+figcloud_gcp = px.treemap(df_ibr, path=[px.Constant('Termo GCP no BRASIL'), df_ibr.estado], values='GCP',
                  color='GCP')
 
 #######################
