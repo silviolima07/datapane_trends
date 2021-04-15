@@ -154,15 +154,15 @@ fig_python
 
 r = dp.Report(
     dp.Page(
-       label='Trend search Cloud Plataform',
+       label='Trend search Cloud Platform',
        blocks=[
-               "#### Treemap -> interest_by_region AWS",
+               "#### Treemap -> interest_by_region of AWS",
                dp.Plot(figcloud_aws),
-               "#### Treemap -> interest_by_region AZURE",
+               "#### Treemap -> interest_by_region of AZURE",
                dp.Plot(figcloud_azure),
-               "#### Treemap -> interest_by_region GCP",
+               "#### Treemap -> interest_by_region of GCP",
                dp.Plot(figcloud_gcp),
-               "#### Bar Plot -> interest_by_region",
+               "#### Bar Plot -> interest_by_region by platform",
                dp.Plot(fig_clouds)]
      ),
      dp.Page(
