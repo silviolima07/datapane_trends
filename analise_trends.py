@@ -154,7 +154,7 @@ fig_python
 
 r = dp.Report(
     dp.Page(
-       label='Trend search Cloud Platform',
+       title='Trend search Cloud Platform',
        blocks=[
                "#### Treemap -> interest_by_region of AWS",
                dp.Plot(figcloud_aws),
@@ -166,7 +166,7 @@ r = dp.Report(
                dp.Plot(fig_clouds)]
      ),
      dp.Page(
-       label='Trend search Linguagens',
+       title='Trend search Linguagens',
        blocks=[
                "#### Scatter Plot -> interest_over_time of Python",
                dp.Plot(fig_python),
@@ -174,7 +174,7 @@ r = dp.Report(
                dp.Plot(fig_R)]
      ),
     dp.Page(
-       label='Trend search Covid',
+       title='Trend search Covid',
        blocks=[
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_covid),
@@ -185,7 +185,7 @@ r = dp.Report(
                ]
      ),
     dp.Page(
-       label='Trend search Lockdown',
+       title='Trend search Lockdown',
        blocks=[
                "#### Scatter Plot -> interest_over_time", 
                dp.Plot(fig1_lock),
